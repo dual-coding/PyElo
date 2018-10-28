@@ -42,7 +42,7 @@ def update_rating(rating_a, rating_b, score, k_a=20, k_b=20):
         raise ValueError("k_b must be positive.")
 
     expected_a = expected_score(rating_a, rating_b)
-    expected_b = 1 - expected_score_a
+    expected_b = 1 - expected_a
 
     rating_a += rating_delta(score, expected_a, k_a)
     rating_b += rating_delta(1 - score, expected_b, k_b)
@@ -76,7 +76,7 @@ def update_team_rating(team_a, team_b, score, k_a=20, k_b=20):
         raise ValueError("team_b must have at least one rating.")
 
     expected_a = expected_team_score(team_a, team_b)
-    expected_b = 1 - expected_score_a
+    expected_b = 1 - expected_a
 
     delta_a = rating_delta(score, expected_a, k_a * len(team_a))
     delta_b = rating_delta(1 - score, expected_b, k_b * len(team_b))

@@ -85,3 +85,8 @@ def update_rank_rating(ranks, k=20)
 >>> update_rank_rating(ranks)
 [1508.114899824563, 1407.3248401762253, 1451.7141475303665, 1302.3691294900568, 1395.3248401762253, 1585.1521428025628]
 ```
+
+## How team and ranked ratings work
+The standard Elo system only handles 1v1 matches. However, PyElo abstracts the Elo system to team and ranked ratings. A team's total rating is the sum of its player's ratings, and the expected score is calculated based on this sum. To update the ratings, PyElo first computes the total change in rating for both teams. Then, each player's contribution to the team based on their rating is calculated using the Bradley-Terry rating scale.
+
+Ranked ratings work by considering a ranked match as wins against the opponents who placed below the player and losses against the opponents who placed above the player. The normal Elo update equations are then applied.

@@ -146,8 +146,8 @@ def update_rank_rating(ranks, k=20):
 
 # Get the base-2 entropy of a Bernoulli(p) distribution.
 def bernoulli_entropy(p):
-	if p < 0 or p > 1:
-		raise ValueError("p must be between 0 and 1, inclusive.")
+	if p <= 0 or p >= 1:
+		raise ValueError("p must be greater than 0 and less than 1.")
 
 	return -(p * math.log2(p) + (1 - p) * math.log2(1 - p))
 

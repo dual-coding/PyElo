@@ -86,6 +86,17 @@ def update_rank_rating(ranks, k=20)
 [1508.114899824563, 1407.3248401762253, 1451.7141475303665, 1302.3691294900568, 1395.3248401762253, 1585.1521428025628]
 ```
 
+## Match fairness
+Suppose that you wish to determine how "fair" a match between two players or two teams is. The `fairness` and `fairness_team` functions return the "fairness" of a match between two players or two teams between 0 and 1.
+
+```Python
+# All arguments are ints or floats.
+def fairness(rating_a, rating_b)
+
+# All arguments are lists of ints or floats.
+def fairness_team(team_a, team_b)
+```
+
 ## How team and ranked ratings work
 The standard Elo system only handles 1v1 matches. However, PyElo abstracts the Elo system to team and ranked ratings. A team's total rating is the sum of its player's ratings, and the expected score is calculated based on this sum. To update the ratings, PyElo first computes the total change in rating for both teams. Then, each player's contribution to the team based on their rating is calculated using the Bradley-Terry rating scale.
 
